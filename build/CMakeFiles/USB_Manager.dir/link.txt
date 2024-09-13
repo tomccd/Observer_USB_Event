@@ -1,0 +1,2 @@
+/usr/bin/ar qc libUSB_Manager.a CMakeFiles/USB_Manager.dir/src/USB_Manager.cpp.o
+/usr/bin/ranlib libUSB_Manager.a
