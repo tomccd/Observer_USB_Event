@@ -117,19 +117,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named USB_Manager
-
-# Build rule for target.
-USB_Manager: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 USB_Manager
-.PHONY : USB_Manager
-
-# fast build rule for target.
-USB_Manager/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/USB_Manager.dir/build.make CMakeFiles/USB_Manager.dir/build
-.PHONY : USB_Manager/fast
-
-#=============================================================================
 # Target rules for targets named main
 
 # Build rule for target.
@@ -141,6 +128,19 @@ main: cmake_check_build_system
 main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
+
+#=============================================================================
+# Target rules for targets named USB_Manager
+
+# Build rule for target.
+USB_Manager: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 USB_Manager
+.PHONY : USB_Manager
+
+# fast build rule for target.
+USB_Manager/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/USB_Manager.dir/build.make CMakeFiles/USB_Manager.dir/build
+.PHONY : USB_Manager/fast
 
 src/USB_Manager.o: src/USB_Manager.cpp.o
 .PHONY : src/USB_Manager.o

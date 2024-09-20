@@ -9,7 +9,6 @@
 #include <unistd.h>
 namespace fs=std::experimental::filesystem;
 typedef std::experimental::filesystem::__cxx11::directory_entry directory_entry;
-
 /*Event_Listener*/
 class Event_Listener{
     public:
@@ -61,7 +60,7 @@ class USB_Handle{
         USB_Handle(Event_Manager *_event){
             this->event = _event;
         }
-        static void checkInsert(USB_Handle &other){
+        static void checkInsert(USB_Handle other){
            while(1){
                 std::vector<directory_entry> previous_Path = other.listUSB;
                 //delete current_list
@@ -76,7 +75,7 @@ class USB_Handle{
                             }
                         }
                         //Condition
-                        if(other.listUSB.size() > previous_Path.size()){
+                        if(other.listUSB.size() > previous_Path.size() && other.listUSB.size()!=0){
                             other.event->notify("insert",other.listUSB[other.listUSB.size()-1]);
                         }
                     }
@@ -85,10 +84,10 @@ class USB_Handle{
                     throw std::invalid_argument("Invalid Directory\n");
                     exit(0);
                 }
-                std::this_thread::sleep_for(std::chrono::milliseconds(500));
+                std::this_thread::sleep_for(std::chrono::milliseconds(100));
             } 
         }
-        static void checkRemove(USB_Handle &other){
+        static void checkRemove(USB_Handle other){
             while(1){
                 std::vector<directory_entry> previous_Path = other.listUSB;
                 //delete current_list
@@ -112,7 +111,7 @@ class USB_Handle{
                     throw std::invalid_argument("Invalid Directory\n");
                     exit(0);
                 }
-                std::this_thread::sleep_for(std::chrono::milliseconds(500));
+                std::this_thread::sleep_for(std::chrono::milliseconds(100));
             }
         }
 };

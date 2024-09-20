@@ -1,5 +1,6 @@
+#ifndef __USB_MANAGER
 #include "../header/USB_Manager.hpp"
-
+#endif
 /*Event_Manager*/
 bool Event_Manager::checkIfExisted(std::string event_type, Event_Listener *new_listener){
     if(listeners.size()!=0){

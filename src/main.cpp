@@ -1,10 +1,11 @@
+#ifndef __USB_MANAGER
 #include "../header/USB_Manager.hpp"
-
+#endif
 std::string USB_Handle::_path = "/media/"+std::string(getlogin());
 int main(){
     /*Listener*/
-    Event_Listener_List_File var_1("H");
-    Event_Listener_List_File var_2("Y");
+    Event_Listener_List_File var_1("subcriber_1");
+    Event_Listener_List_File var_2("subcriber_2");
     /*Handle Event*/
     USB_Handle Handle(new Event_Manager());
     //Subcribe
